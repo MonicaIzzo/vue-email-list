@@ -12,6 +12,7 @@ console.log('Vue OK, Vue');
 
 // # Axios
 const element = document.getElementById('root');
+let content = '';
 axios.get('https://ﬂynn.boolean.careers/exercises/api/random/mail')
 .then(result => {
   console.log(result.data);
