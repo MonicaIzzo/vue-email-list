@@ -19,10 +19,9 @@ const endpoint = 'https://ﬂynn.boolean.careers/exercises/api/random/mail';
         computed: {
         },
         methods: {
-          //createListemail() {
+          //createListEmail() {
 
-          }
-        },
+          },
         created () {
           // # Axios
           axios.get(endpoint)
@@ -36,7 +35,6 @@ const endpoint = 'https://ﬂynn.boolean.careers/exercises/api/random/mail';
           })
           .then(() => {
           console.log('Chiamata terminata')
-        
           });
         }
     });
