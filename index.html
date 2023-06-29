@@ -25,10 +25,12 @@
 <body>
 <!-- ROOT Vue JS -->
     <div class="container p-5" id="root">
-        <ul>
-            <li v-for="(email, i) in emails" :key="i">{{email}}</li>
+        <ul v-if="emails.length === 10 && !error">
+            <li v-for="(email, i) in emails" :key="i">
+                {{email}}
+            </li>
         </ul>
-        <div v-if="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+        <div v-if="error" class="alert alert-danger">Si è verificato un errore</div>
     </div>
     
     

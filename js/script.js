@@ -11,37 +11,42 @@ console.log('Vue OK', Vue);
 // # Axios
 const endpoint = 'https://ﬂynn.boolean.careers/exercises/api/random/mail';
 // # inizializzo Vue JS
+
+
     const app = Vue.createApp ({
         data() {
             return {
               emails: [],
-              errorMessage: ''
+              error: false
             }
         },
         computed: {
         },
 
         methods: {
-          },
+          getRandomEmail () {
+            // # Axios
+            axios.get(endpoint)
+            .then(res => {
+            console.log(res.data.response);
+            const email = res.data.response;
+            this.emails.push(email);
+            this.error = false;
+          
+            }).catch(() => {
+            this.error = true;
+            console.log('Si è verificato un errore');
+            })
+          
+            .then(() => {
+            console.log('Chiamata terminata');
+            });
+            }
+      },
 
         created () {
           for (let i = 1; i <= 10; i++) {
-           // # Axios
-          axios.get(endpoint)
-          .then(res => {
-          console.log(res.data.response);
-          const email = res.data.response;
-          this.emails.push(email);
-          this.errorMessage = '';
-          
-          }).catch((err) => {
-          this.errorMessage = 'Si è verificato un errore';
-          console.log('Si è verificato un errore')
-          })
-          
-          .then(() => {
-          console.log('Chiamata terminata')
-          }); 
+            this.getRandomEmail();
           }
         }
     });
