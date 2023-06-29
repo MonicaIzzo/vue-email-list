@@ -6,36 +6,43 @@ Bonus
 Far comparire gli indirizzi email solamente quando sono stati tutti generati.
 */
 
+console.log('Vue OK', Vue);
+
 // # Axios
 const endpoint = 'https://ﬂynn.boolean.careers/exercises/api/random/mail';
 // # inizializzo Vue JS
     const app = Vue.createApp ({
         data() {
             return {
-              mail: null,
-              mailList: null,
+              emails: [],
+              errorMessage: ''
             }
         },
         computed: {
         },
-        methods: {
-          //createListEmail() {
 
+        methods: {
           },
+
         created () {
-          // # Axios
+          for (let i = 1; i <= 10; i++) {
+           // # Axios
           axios.get(endpoint)
           .then(res => {
           console.log(res.data.response);
-          this.mail = res.data;
-          //content = result.data.response;
-          //element.innerText = content;
+          const email = res.data.response;
+          this.emails.push(email);
+          this.errorMessage = '';
+          
           }).catch((err) => {
-          body.innerText = err.message;
+          this.errorMessage = 'Si è verificato un errore';
+          console.log('Si è verificato un errore')
           })
+          
           .then(() => {
           console.log('Chiamata terminata')
-          });
+          }); 
+          }
         }
     });
     //Monto nell'elemento HTML "radice"

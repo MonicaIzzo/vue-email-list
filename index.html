@@ -24,10 +24,11 @@
 
 <body>
 <!-- ROOT Vue JS -->
-    <div class="" id="root">
+    <div class="container p-5" id="root">
         <ul>
-            <li>{{mail}}</li>
+            <li v-for="(email, i) in emails" :key="i">{{email}}</li>
         </ul>
+        <div v-if="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
     </div>
     
     
@@ -40,6 +41,3 @@
     <script defer src="js/script.js"></script>
 </body>
 </html>
-
-<!-- Send
-<i class="fa-solid fa-paper-plane"></i>>-->
